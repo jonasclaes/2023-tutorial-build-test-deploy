@@ -1,4 +1,4 @@
-name: Tests
+name: Test and deploy
 
 on:
     push:
@@ -12,3 +12,10 @@ jobs:
                 run: yarn
             -   name: Run tests
                 run: yarn test
+    Deploy:
+        needs: Test
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v3
+            -   name: Deploy to Production
+                run: yarn deploy
