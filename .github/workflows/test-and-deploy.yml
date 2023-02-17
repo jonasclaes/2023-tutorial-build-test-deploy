@@ -31,7 +31,7 @@ jobs:
                 run: |
                     zip -r dist.zip dist/
             -   name: Get latest release
-                uses: actions/github-script@v6
+                uses: actions/github-script@v5
                 id: get_latest_release
                 with:
                     script: |
