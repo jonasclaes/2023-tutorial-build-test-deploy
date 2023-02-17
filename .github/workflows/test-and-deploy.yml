@@ -32,7 +32,7 @@ jobs:
                             repo: context.repo.repo,
                             per_page: 1
                         });
-                        return releases[0].tag_name.replace('\"', '');
+                        return releases[0].tag_name.replace('"', '');
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -42,8 +42,8 @@ jobs:
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 with:
-                    tag_name: ${{ steps.get_latest_release.outputs.result }}-${{ github.sha }}
-                    release_name: Release ${{ steps.get_latest_release.outputs.result }}-${{ github.sha }}
+                    tag_name: "${{ steps.get_latest_release.outputs.result }}-${{ github.sha }}"
+                    release_name: "Release ${{ steps.get_latest_release.outputs.result }}-${{ github.sha }}"
                     draft: false
                     prerelease: false
             -   name: Upload release asset
