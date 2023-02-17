@@ -32,7 +32,7 @@ jobs:
                             repo: context.repo.repo,
                             per_page: 1
                         });
-                        return releases[0].tag_name.replaceAll('"', '');
+                        return releases[0].tag_name.replace('\"', '');
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
